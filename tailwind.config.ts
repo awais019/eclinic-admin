@@ -11,6 +11,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        blue_ribbon: "#166FFF",
         anti_flash_white: "#f2f4f7",
         flash_white: "#EFF1F5",
         dim_gray: "#646777",

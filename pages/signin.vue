@@ -21,11 +21,7 @@
     class="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8"
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <img
-        class="mx-auto h-10 w-auto"
-        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-        alt="Shoes Desire"
-      />
+      <IconsLogo class="mx-auto" />
       <h2
         class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
       >
@@ -101,7 +97,7 @@
           <div>
             <button
               type="submit"
-              class="flex w-full justify-center rounded-md bg-dark_gunmetal px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm"
+              class="flex w-full justify-center rounded-md bg-blue_ribbon px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm"
             >
               Sign in
             </button>

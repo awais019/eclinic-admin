@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  const { getAll } = useDoctor();
+  const { data } = await getAll();
+</script>
 
 <template>
   <section v-if="data">
@@ -7,46 +10,28 @@
     >
       <thead>
         <tr class="border-solid border-b border-flash_white">
-          <th class="py-2">Image</th>
           <th class="py-2">Name</th>
-          <th class="py-2">Slug</th>
-          <th class="py-2">Description</th>
-          <th class="py-2">No. of products</th>
-          <th class="py-2">Actions</th>
+          <th class="py-2">Specialization</th>
+          <th class="py-2">Gender</th>
+          <th class="py-2">Hospital Name</th>
+          <th class="py-2">City</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="category in data.data"
-          :key="category.id"
+          v-for="doctor in data.data.doctors"
+          :key="doctor.id"
           class="border-b border-flash_white"
         >
           <td class="py-2">
-            <div class="border border-anti_flash_white p-0.5 w-10 h-10">
-              <img
-                :src="category.imageUrl"
-                :alt="category.name"
-                class="object-cover w-full h-full"
-              />
-            </div>
+            <nuxt-link :to="`/doctors/${doctor.id}`" class="hover:underline">
+              {{ doctor.first_name }} {{ doctor.last_name }}
+            </nuxt-link>
           </td>
-          <td class="py-2">{{ category.name }}</td>
-          <td class="py-2">{{ category.slug }}</td>
-          <td class="py-2 truncate">{{ category.description }}</td>
-          <td class="py-2">{{ category.productsCount }}</td>
-          <td class="py-2 flex gap-2">
-            <button
-              class="bg-light_azure py-2 px-4 text-white font-medium rounded-md hover:bg-azure"
-            >
-              Edit
-            </button>
-
-            <button
-              class="bg-red-400 py-2 px-4 text-white font-medium rounded-md hover:bg-red-500"
-            >
-              Delete
-            </button>
-          </td>
+          <td class="py-2">{{ doctor.specialization }}</td>
+          <td class="py-2">{{ doctor.gender }}</td>
+          <td class="py-2 truncate">{{ doctor.hospital_clinic_name }}</td>
+          <td class="py-2">{{ doctor.city }}</td>
         </tr>
       </tbody>
     </table>

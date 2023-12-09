@@ -1,6 +1,4 @@
-<script setup lang="ts">
-  const { data } = await useCategory().getAll();
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <section v-if="data">

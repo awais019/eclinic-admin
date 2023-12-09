@@ -34,8 +34,27 @@ export const useDoctor = () => {
     });
   }
 
+  function verifyDoctor(id: string, status: string) {
+    const { token } = useUserStore();
+
+    return useFetch<{
+      data: Doctor;
+      message: string;
+    }>(`/admin/doctors/${id}`, {
+      method: "PUT",
+      body: {
+        status,
+      },
+      headers: {
+        "x-auth-token": token,
+      },
+      baseURL,
+    });
+  }
+
   return {
     getAll,
     get,
+    verifyDoctor,
   };
 };

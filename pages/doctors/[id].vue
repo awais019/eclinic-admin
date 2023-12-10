@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   const route = useRoute();
 
-  const { id } = route.params;
+  const { id } = route.params as { id: string };
 </script>
 
 <template>
